@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "797064550684",
+    "project_id": "book-order-eb099",
+    "storage_bucket": "book-order-eb099.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797064550684:android:305fdd2b225955be1082d9",
+        "android_client_info": {
+          "package_name": "com.example.order_notebook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmthWw0zdn4igNEb33vkkhD6mGgNEC-mA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
