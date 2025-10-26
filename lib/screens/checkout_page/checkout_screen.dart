@@ -209,12 +209,46 @@ class _CartPageState extends ConsumerState<CartPage> {
                           icon: Icon(Icons.location_on),
                         ),
                         if (lat != 0.0)
-                          ElevatedButton(
-                            onPressed: () {
+                          GestureDetector(
+                            onTap: () {
                               showImageDialog();
                             },
-                            child: Text('Show Location'),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(0),
+                                  height: 50,
+                                  width: 50,
+                                  // Set your desired height
+                                  decoration: BoxDecoration(
+                                    // Background color if image fails to load
+                                    // Optional: Rounded corners
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        getStaticMapUrl(lat, long),
+                                      ),
+                                      fit: BoxFit
+                                          .scaleDown, // Adjust the image to cover the box
+                                    ),
+                                  ),
+                                ),
+                                // Icon(Icons.location_city , color: Colors.red,),
+                                Text(
+                                  'See Your Location',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
+                        // ElevatedButton(
+                        //   onPressed: () {
+                        //     showImageDialog();
+                        //   },
+                        //   child: Text('Show Location'),
+                        // ),
                       ],
                     ),
                   ),
