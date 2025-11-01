@@ -80,51 +80,48 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        GoogleMap(
-          webCameraControlEnabled: false,
-          onMapCreated: (controller) => mapController = controller,
-          initialCameraPosition: initialPosition,
-          onTap: (LatLng position) {
-            setState(() => selectedLocation = position);
-          },
-          markers: {
-            if (selectedLocation != null)
-              Marker(
-                markerId: const MarkerId("selected"),
-                position: selectedLocation!,
-              ),
-          },
-        ),
-
-        // Current Location Button
-        Positioned(
-          right: 5,
-          bottom: 120,
-          child: FloatingActionButton(backgroundColor: Colors.white,
-            shape: CircleBorder(),
-            onPressed: goToCurrentLocation,
-            child: const Icon(Icons.my_location ,color: Colors.blue,),
+        Expanded(
+          child: GoogleMap(
+            webCameraControlEnabled: false,
+            onMapCreated: (controller) => mapController = controller,
+            initialCameraPosition: initialPosition,
+            onTap: (LatLng position) {
+              setState(() => selectedLocation = position);
+            },
+            markers: {
+              if (selectedLocation != null)
+                Marker(
+                  markerId: const MarkerId("selected"),
+                  position: selectedLocation!,
+                ),
+            },
           ),
         ),
+        SizedBox(height: 7),
+        // Current Location Button
+        TextButton.icon(style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.brown.withAlpha(30))),
+          onPressed: goToCurrentLocation,
+          label: Text(
+            'Go to current location',
+            style: TextStyle(color: Colors.blue),
+          ),
+          icon: Icon(Icons.my_location , color: Colors.blue,),
+        ),
+        SizedBox(height: 20),
 
         // Confirm Location Button
         if (selectedLocation != null)
-          Positioned(
-            bottom: 20,
-            left: 20,
-            right: 50,
-            child: ElevatedButton.icon(
-              icon: const Icon(Icons.check),
-              label: const Text("Confirm Location"),
-              onPressed: () {
-                widget.onLocationSelected(selectedLocation!);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-              ),
+          ElevatedButton.icon(
+            icon: const Icon(Icons.check),
+            label: const Text("Confirm Location"),
+            onPressed: () {
+              widget.onLocationSelected(selectedLocation!);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              padding: const EdgeInsets.symmetric(vertical: 14 , horizontal: 10),
             ),
           ),
       ],

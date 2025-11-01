@@ -3,7 +3,95 @@
 
 <head>
 
-  <script type="module">
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="order_notebook">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUmzOqYKQZCwwH8F44QuO53vQ6wWNbhw" async defer>
+  </script>
+
+  <title>order_notebook</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <div id="loading_container">
+    <div class="loader"></div>
+    <p class="loading_text">Loading NoteBook For Mee...</p>
+  </div>
+
+  <style>
+    /* Clean white background with centered content */
+    #loading_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffffff;
+      font-family: "Poppins", sans-serif;
+      color: #444;
+      overflow: hidden;
+    }
+
+    /* Gradient ring loader */
+    .loader {
+      width: 100px;
+      height: 100px;
+      border: 6px solid transparent;
+      border-top: 6px solid #4285F4;
+      /* Blue */
+      border-right: 6px solid #34A853;
+      /* Green */
+      border-bottom: 6px solid #FBBC05;
+      /* Yellow */
+      border-left: 6px solid #EA4335;
+      /* Red */
+      border-radius: 50%;
+      animation: spin 1.3s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading_text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 0.5px;
+      animation: fadePulse 1.5s infinite;
+    }
+
+    @keyframes fadePulse {
+
+      0%,
+      100% {
+        opacity: 0.7;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+
+
+  <!-- <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
@@ -25,48 +113,13 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-  </script>
+  </script> -->
 
 
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="order_notebook">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUmzOqYKQZCwwH8F44QuO53vQ6wWNbhw"></script>
-
-
-  <title>order_notebook</title>
-  <link rel="manifest" href="manifest.json">
-</head>
-
-<body>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqIobYDE3BojFo4ut24ilw74pFIPnQ1Z4&libraries=places"></script>
   <script src="flutter_bootstrap.js" async></script>
+  <!-- 
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqIobYDE3BojFo4ut24ilw74pFIPnQ1Z4&libraries=places"></script> -->
 </body>
 
 </html>

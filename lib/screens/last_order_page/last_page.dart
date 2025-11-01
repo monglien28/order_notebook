@@ -31,23 +31,11 @@ class LastPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Flexible(
-              child: Column(
-                children: [
-                  if (currentOrderCount >= 5)
-                    Text(
-                      'You are eligible for a free 100 page notebook 🎉',
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  SizedBox(height: 10),
-                  Text(
-                    count10Message,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  SizedBox(height: 10),
-                ],
-              ),
+            Text(
+              count10Message,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
+
             Flexible(
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.check_circle_outline),
@@ -65,20 +53,10 @@ class LastPage extends StatelessWidget {
                 },
               ),
             ),
-            Flexible(
-              child: Column(
-                children: [
-                  Text(
-                    '✔️ Order 5 notebooks in a single order and get a 100 pages notebook free. 🎁',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    '✔️ Order 10 notebooks in a year and get a 300 pages notebook free. 🎁',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ],
-              ),
+
+            Text(
+              '✔️ Order 10 notebooks in a year and get a 300 pages notebook free. 🎁',
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
         ),

@@ -25,14 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.7.1"
-  animate_do:
-    dependency: "direct main"
-    description:
-      name: animate_do
-      sha256: e5c8b92e8495cba5adfff17c0b017d50f46b2766226e9faaf68bc08c91aef034
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.2.0"
   archive:
     dependency: transitive
     description:
@@ -73,14 +65,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
-  checked_yaml:
-    dependency: transitive
-    description:
-      name: checked_yaml
-      sha256: "959525d3162f249993882720d52b7e0c833978df229be20702b33d48d91de70f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.4"
   cli_config:
     dependency: transitive
     description:
@@ -89,14 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.0"
-  cli_util:
-    dependency: transitive
-    description:
-      name: cli_util
-      sha256: ff6785f7e9e3c38ac98b2fb035701789de90154024a75b6cb926445e83197d1c
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.2"
   clock:
     dependency: transitive
     description:
@@ -246,14 +222,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.2.0"
-  flutter_launcher_icons:
-    dependency: "direct main"
-    description:
-      name: flutter_launcher_icons
-      sha256: "10f13781741a2e3972126fae08393d3c4e01fa4cd7473326b94b72cf594195e7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.14.4"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -422,7 +390,7 @@ packages:
     source: hosted
     version: "2.14.0"
   google_maps_flutter_web:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: google_maps_flutter_web
       sha256: "53e5dbf73ff04153acc55a038248706967c21d5b6ef6657a57fce2be73c2895a"
@@ -469,14 +437,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
-  image:
-    dependency: transitive
-    description:
-      name: image
-      sha256: "4e973fcf4caae1a4be2fa0a13157aa38a8f9cb049db6529aa00b4d71abc4d928"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.5.4"
   intl:
     dependency: transitive
     description:
@@ -501,14 +461,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.2"
-  json_annotation:
-    dependency: transitive
-    description:
-      name: json_annotation
-      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.9.0"
   leak_tracker:
     dependency: transitive
     description:
@@ -717,14 +669,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
-  skeletonizer:
-    dependency: "direct main"
-    description:
-      name: skeletonizer
-      sha256: eebc03dc86b298e2d7f61e0ebce5713e9dbbc3e786f825909b4591756f196eb6
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.0+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -883,7 +827,7 @@ packages:
     source: hosted
     version: "1.1.4"
   web:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: web
       sha256: "868d88a33d8a87b18ffc05f9f030ba328ffefba92d6c127917a2ba740f9cfe4a"

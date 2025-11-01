@@ -7,22 +7,17 @@
       "name": "order_notebook",
       "version": "0.1.0",
       "dependencies": [
-        "animate_do",
         "cloud_firestore",
         "firebase_core",
         "flutter",
         "flutter_form_builder",
-        "flutter_launcher_icons",
         "flutter_riverpod",
         "form_builder_validators",
         "geolocator",
         "google_maps_flutter",
-        "google_maps_flutter_web",
         "http",
         "lottie",
-        "skeletonizer",
-        "smooth_page_indicator",
-        "web"
+        "smooth_page_indicator"
       ],
       "devDependencies": [
         "flutter_lints",
@@ -55,10 +50,13 @@
       ]
     },
     {
-      "name": "skeletonizer",
-      "version": "2.1.0+1",
+      "name": "firebase_core",
+      "version": "4.2.0",
       "dependencies": [
-        "flutter"
+        "firebase_core_platform_interface",
+        "firebase_core_web",
+        "flutter",
+        "meta"
       ]
     },
     {
@@ -85,25 +83,6 @@
       ]
     },
     {
-      "name": "web",
-      "version": "1.1.1",
-      "dependencies": []
-    },
-    {
-      "name": "google_maps_flutter_web",
-      "version": "0.5.14+2",
-      "dependencies": [
-        "collection",
-        "flutter",
-        "flutter_web_plugins",
-        "google_maps",
-        "google_maps_flutter_platform_interface",
-        "sanitize_html",
-        "stream_transform",
-        "web"
-      ]
-    },
-    {
       "name": "google_maps_flutter",
       "version": "2.13.1",
       "dependencies": [
@@ -112,19 +91,6 @@
         "google_maps_flutter_ios",
         "google_maps_flutter_platform_interface",
         "google_maps_flutter_web"
-      ]
-    },
-    {
-      "name": "flutter_launcher_icons",
-      "version": "0.14.4",
-      "dependencies": [
-        "args",
-        "checked_yaml",
-        "cli_util",
-        "image",
-        "json_annotation",
-        "path",
-        "yaml"
       ]
     },
     {
@@ -151,13 +117,6 @@
       ]
     },
     {
-      "name": "animate_do",
-      "version": "4.2.0",
-      "dependencies": [
-        "flutter"
-      ]
-    },
-    {
       "name": "smooth_page_indicator",
       "version": "1.2.1",
       "dependencies": [
@@ -171,16 +130,6 @@
         "flutter",
         "flutter_localizations",
         "intl"
-      ]
-    },
-    {
-      "name": "firebase_core",
-      "version": "4.2.0",
-      "dependencies": [
-        "firebase_core_platform_interface",
-        "firebase_core_web",
-        "flutter",
-        "meta"
       ]
     },
     {
@@ -306,6 +255,28 @@
       ]
     },
     {
+      "name": "firebase_core_web",
+      "version": "3.2.0",
+      "dependencies": [
+        "firebase_core_platform_interface",
+        "flutter",
+        "flutter_web_plugins",
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "firebase_core_platform_interface",
+      "version": "6.0.2",
+      "dependencies": [
+        "collection",
+        "flutter",
+        "flutter_test",
+        "meta",
+        "plugin_platform_interface"
+      ]
+    },
+    {
       "name": "geolocator_linux",
       "version": "0.2.3",
       "dependencies": [
@@ -364,6 +335,11 @@
       ]
     },
     {
+      "name": "web",
+      "version": "1.1.1",
+      "dependencies": []
+    },
+    {
       "name": "http_parser",
       "version": "4.1.2",
       "dependencies": [
@@ -382,16 +358,17 @@
       ]
     },
     {
-      "name": "stream_transform",
-      "version": "2.1.1",
-      "dependencies": []
-    },
-    {
-      "name": "sanitize_html",
-      "version": "2.1.0",
+      "name": "google_maps_flutter_web",
+      "version": "0.5.14+2",
       "dependencies": [
-        "html",
-        "meta"
+        "collection",
+        "flutter",
+        "flutter_web_plugins",
+        "google_maps",
+        "google_maps_flutter_platform_interface",
+        "sanitize_html",
+        "stream_transform",
+        "web"
       ]
     },
     {
@@ -402,21 +379,6 @@
         "flutter",
         "plugin_platform_interface",
         "stream_transform"
-      ]
-    },
-    {
-      "name": "google_maps",
-      "version": "8.2.0",
-      "dependencies": [
-        "meta",
-        "web"
-      ]
-    },
-    {
-      "name": "flutter_web_plugins",
-      "version": "0.0.0",
-      "dependencies": [
-        "flutter"
       ]
     },
     {
@@ -437,53 +399,6 @@
         "google_maps_flutter_platform_interface",
         "stream_transform"
       ]
-    },
-    {
-      "name": "yaml",
-      "version": "3.1.3",
-      "dependencies": [
-        "collection",
-        "source_span",
-        "string_scanner"
-      ]
-    },
-    {
-      "name": "json_annotation",
-      "version": "4.9.0",
-      "dependencies": [
-        "meta"
-      ]
-    },
-    {
-      "name": "image",
-      "version": "4.5.4",
-      "dependencies": [
-        "archive",
-        "meta",
-        "xml"
-      ]
-    },
-    {
-      "name": "cli_util",
-      "version": "0.4.2",
-      "dependencies": [
-        "meta",
-        "path"
-      ]
-    },
-    {
-      "name": "checked_yaml",
-      "version": "2.0.4",
-      "dependencies": [
-        "json_annotation",
-        "source_span",
-        "yaml"
-      ]
-    },
-    {
-      "name": "args",
-      "version": "2.7.0",
-      "dependencies": []
     },
     {
       "name": "archive",
@@ -529,28 +444,6 @@
         "flutter",
         "intl",
         "path"
-      ]
-    },
-    {
-      "name": "firebase_core_web",
-      "version": "3.2.0",
-      "dependencies": [
-        "firebase_core_platform_interface",
-        "flutter",
-        "flutter_web_plugins",
-        "meta",
-        "web"
-      ]
-    },
-    {
-      "name": "firebase_core_platform_interface",
-      "version": "6.0.2",
-      "dependencies": [
-        "collection",
-        "flutter",
-        "flutter_test",
-        "meta",
-        "plugin_platform_interface"
       ]
     },
     {
@@ -645,6 +538,20 @@
       ]
     },
     {
+      "name": "flutter_web_plugins",
+      "version": "0.0.0",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "plugin_platform_interface",
+      "version": "2.1.8",
+      "dependencies": [
+        "meta"
+      ]
+    },
+    {
       "name": "package_info_plus",
       "version": "8.3.1",
       "dependencies": [
@@ -697,13 +604,6 @@
       ]
     },
     {
-      "name": "plugin_platform_interface",
-      "version": "2.1.8",
-      "dependencies": [
-        "meta"
-      ]
-    },
-    {
       "name": "typed_data",
       "version": "1.4.0",
       "dependencies": [
@@ -711,11 +611,24 @@
       ]
     },
     {
-      "name": "html",
-      "version": "0.15.6",
+      "name": "stream_transform",
+      "version": "2.1.1",
+      "dependencies": []
+    },
+    {
+      "name": "sanitize_html",
+      "version": "2.1.0",
       "dependencies": [
-        "csslib",
-        "source_span"
+        "html",
+        "meta"
+      ]
+    },
+    {
+      "name": "google_maps",
+      "version": "8.2.0",
+      "dependencies": [
+        "meta",
+        "web"
       ]
     },
     {
@@ -723,15 +636,6 @@
       "version": "2.0.32",
       "dependencies": [
         "flutter"
-      ]
-    },
-    {
-      "name": "xml",
-      "version": "6.6.1",
-      "dependencies": [
-        "collection",
-        "meta",
-        "petitparser"
       ]
     },
     {
@@ -828,6 +732,20 @@
       ]
     },
     {
+      "name": "xml",
+      "version": "6.6.1",
+      "dependencies": [
+        "collection",
+        "meta",
+        "petitparser"
+      ]
+    },
+    {
+      "name": "args",
+      "version": "2.7.0",
+      "dependencies": []
+    },
+    {
       "name": "fixnum",
       "version": "1.1.1",
       "dependencies": []
@@ -838,18 +756,20 @@
       "dependencies": []
     },
     {
-      "name": "csslib",
-      "version": "1.0.2",
+      "name": "html",
+      "version": "0.15.6",
       "dependencies": [
+        "csslib",
         "source_span"
       ]
     },
     {
-      "name": "petitparser",
-      "version": "7.0.1",
+      "name": "yaml",
+      "version": "3.1.3",
       "dependencies": [
         "collection",
-        "meta"
+        "source_span",
+        "string_scanner"
       ]
     },
     {
@@ -1012,6 +932,21 @@
         "source_span",
         "watcher",
         "yaml"
+      ]
+    },
+    {
+      "name": "petitparser",
+      "version": "7.0.1",
+      "dependencies": [
+        "collection",
+        "meta"
+      ]
+    },
+    {
+      "name": "csslib",
+      "version": "1.0.2",
+      "dependencies": [
+        "source_span"
       ]
     },
     {

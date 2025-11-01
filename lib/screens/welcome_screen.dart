@@ -38,11 +38,11 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
               key: _formKey,
               child: Column(
                 children: [
-                  Image.asset(
+                  Image.network(
+                    'https://res.cloudinary.com/dsrfkeh1v/image/upload/v1761938027/logo_iu6voj.jpg',
                     height: 400,
                     width: double.maxFinite,
                     filterQuality: FilterQuality.medium,
-                    "assets/images/logo.jpeg",
                     fit: BoxFit
                         .contain, // Ensure the image covers the entire space
                     color: const Color.fromARGB(
@@ -56,16 +56,13 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
                   SizedBox(height: 20),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: FormBuilderTextField(
+                    child: TextFormField(
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(),
                         FormBuilderValidators.equalLength(10),
                       ]),
-                      name: 'Mobile No',
                       onChanged: (value) {
-                        if (value != null &&
-                            value.isNotEmpty &&
-                            value.length == 10) {
+                        if (value.isNotEmpty && value.length == 10) {
                           Future.delayed(Duration(milliseconds: 100), () {
                             if (_formKey.currentState?.validate() ?? false) {
                               onNextClicked();
@@ -121,8 +118,7 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
                   if (!isConsumerExist)
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: FormBuilderTextField(
-                        name: 'Name',
+                      child: TextFormField(
                         style: Theme.of(context).textTheme.bodyMedium,
                         validator: FormBuilderValidators.required(),
                         controller: nameController,

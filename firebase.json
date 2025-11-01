@@ -1,1 +1,74 @@
-{"firestore":{"database":"(default)","location":"nam5","rules":"firestore.rules","indexes":"firestore.indexes.json"},"flutter":{"platforms":{"android":{"default":{"projectId":"book-order-eb099","appId":"1:797064550684:android:305fdd2b225955be1082d9","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"book-order-eb099","configurations":{"web":"1:797064550684:web:29928c6cad74c5141082d9"}}}}},"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]}}
+{
+    "firestore": {
+        "database": "(default)",
+        "location": "nam5",
+        "rules": "firestore.rules",
+        "indexes": "firestore.indexes.json"
+    },
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "book-order-eb099",
+                    "appId": "1:797064550684:android:305fdd2b225955be1082d9",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "book-order-eb099",
+                    "configurations": {
+                        "web": "1:797064550684:web:29928c6cad74c5141082d9"
+                    }
+                }
+            }
+        }
+    },
+    "hosting": {
+        "public": "build/web",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ],
+        "headers": [
+            {
+                "source": "**",
+                "headers": [
+                    {
+                        "key": "Cross-Origin-Embedder-Policy",
+                        "value": "require-corp"
+                    },
+                    {
+                        "key": "Cross-Origin-Opener-Policy",
+                        "value": "same-origin"
+                    }
+                ]
+            },
+            {
+                "source": "/**",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "public, max-age=0, must-revalidate"
+                    }
+                ]
+            },
+            {
+                "source": "**/@(main.dart.js|canvaskit.*|skwasm.*|assets/**)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "public, max-age=31536000, immutable"
+                    }
+                ]
+            }
+        ]
+    }
+}

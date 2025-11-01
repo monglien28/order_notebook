@@ -7,15 +7,15 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:797064550684:android:305fdd2b225955be1082d9",
+        "mobilesdk_app_id": "1:797064550684:android:136c58209da1bef61082d9",
         "android_client_info": {
-          "package_name": "com.example.order_notebook"
+          "package_name": "com.notebookfor.mee"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCmthWw0zdn4igNEb33vkkhD6mGgNEC-mA"
+          "current_key": "AIzaSyDse0172vuGj8MJz8zytIQQGjXZ936_cHs"
         }
       ],
       "services": {

@@ -21,7 +21,10 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for ios - '
@@ -50,21 +53,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAc1KJiwfJijmkCWRyCe78OZS_innMGGHo',
+    apiKey: 'AIzaSyBqIobYDE3BojFo4ut24ilw74pFIPnQ1Z4',
     appId: '1:797064550684:web:29928c6cad74c5141082d9',
     messagingSenderId: '797064550684',
     projectId: 'book-order-eb099',
     authDomain: 'book-order-eb099.firebaseapp.com',
     storageBucket: 'book-order-eb099.firebasestorage.app',
     measurementId: 'G-083VHX9QVC',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCmthWw0zdn4igNEb33vkkhD6mGgNEC-mA',
-    appId: '1:797064550684:android:305fdd2b225955be1082d9',
-    messagingSenderId: '797064550684',
-    projectId: 'book-order-eb099',
-    storageBucket: 'book-order-eb099.firebasestorage.app',
   );
 
 }

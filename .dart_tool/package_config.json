@@ -20,12 +20,6 @@
       "languageVersion": "3.5"
     },
     {
-      "name": "animate_do",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/animate_do-4.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.1"
-    },
-    {
       "name": "archive",
       "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/archive-4.0.7",
       "packageUri": "lib/",
@@ -56,22 +50,10 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "checked_yaml",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/checked_yaml-2.0.4",
-      "packageUri": "lib/",
-      "languageVersion": "3.8"
-    },
-    {
       "name": "cli_config",
       "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/cli_config-0.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
-    },
-    {
-      "name": "cli_util",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/cli_util-0.4.2",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
     },
     {
       "name": "clock",
@@ -186,12 +168,6 @@
       "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_form_builder-10.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.9"
-    },
-    {
-      "name": "flutter_launcher_icons",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_launcher_icons-0.14.4",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
     },
     {
       "name": "flutter_lints",
@@ -362,12 +338,6 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "image",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/image-4.5.4",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
-    },
-    {
       "name": "intl",
       "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.20.2",
       "packageUri": "lib/",
@@ -384,12 +354,6 @@
       "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.7.2",
       "packageUri": "lib/",
       "languageVersion": "3.7"
-    },
-    {
-      "name": "json_annotation",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/json_annotation-4.9.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
     },
     {
       "name": "leak_tracker",
@@ -546,12 +510,6 @@
       "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/shelf_web_socket-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
-    },
-    {
-      "name": "skeletonizer",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/skeletonizer-2.1.0+1",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
     },
     {
       "name": "sky_engine",
@@ -731,6 +689,6 @@
   "generator": "pub",
   "generatorVersion": "3.9.2",
   "flutterRoot": "file:///C:/flutter",
-  "flutterVersion": "3.35.6",
+  "flutterVersion": "3.35.7",
   "pubCache": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache"
 }
