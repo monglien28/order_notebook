@@ -61,11 +61,11 @@ class _ShowNotebookVariantState extends ConsumerState<ShowNotebookVariant> {
               ),
 
               // --- Navigation Buttons ---
-              Container(
-                color: const Color.fromARGB(255, 156, 127, 70),
-                padding: const EdgeInsets.all(12.0),
-                child: FittedBox(
-                  fit: BoxFit.contain,
+              SizedBox(
+                width: double.maxFinite,
+                child: Container(
+                  color: const Color.fromARGB(255, 156, 127, 70),
+                  padding: const EdgeInsets.symmetric(horizontal: 12 , vertical: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -101,16 +101,17 @@ class _ShowNotebookVariantState extends ConsumerState<ShowNotebookVariant> {
                           label: const Text("Next"),
                         ),
                       SizedBox(width: 10),
-                      ElevatedButton.icon(
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll(
-                            Theme.of(context).colorScheme.onPrimary,
+                      if (currentIndex == entries.length - 1)
+                        ElevatedButton.icon(
+                          style: ButtonStyle(
+                            backgroundColor: WidgetStatePropertyAll(
+                              Theme.of(context).colorScheme.onPrimary,
+                            ),
                           ),
+                          icon: const Icon(Icons.shopping_cart),
+                          onPressed: onGoToCartClick,
+                          label: const Text('Complete Order'),
                         ),
-                        icon: const Icon(Icons.shopping_cart),
-                        onPressed: onGoToCartClick,
-                        label: const Text('Complete Order'),
-                      ),
                       SizedBox(width: 10),
                     ],
                   ),
