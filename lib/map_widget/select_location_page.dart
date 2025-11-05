@@ -1,24 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:order_notebook/map_widget/map_riverpod.dart';
 
-class SelectLocationPage extends StatefulWidget {
+class SelectLocationPage extends ConsumerStatefulWidget {
   final void Function(LatLng location) onLocationSelected;
 
   const SelectLocationPage({super.key, required this.onLocationSelected});
 
   @override
-  State<SelectLocationPage> createState() => _SelectLocationPageState();
+  ConsumerState<SelectLocationPage> createState() => _SelectLocationPageState();
 }
 
-class _SelectLocationPageState extends State<SelectLocationPage> {
+class _SelectLocationPageState extends ConsumerState<SelectLocationPage> {
   GoogleMapController? mapController;
   LatLng? selectedLocation;
 
-  static const CameraPosition initialPosition = CameraPosition(
-    target: LatLng(26.873601, 75.776285), // India center
-    zoom: 14,
-  );
+  late CameraPosition initialPosition;
+
+  @override
+  void initState() {
+    final location = ref.read(locationProvider);
+    if (location != null) {
+      initialPosition = CameraPosition(
+        target: LatLng(location.latitude, location.longitude),
+        zoom: 15,
+      );
+    } else {
+      initialPosition = CameraPosition(
+        target: LatLng(26.873601, 75.776285), // India center
+        zoom: 14,
+      );
+    }
+    super.initState();
+  }
 
   // Get current location
   Future<void> goToCurrentLocation() async {
@@ -101,13 +117,16 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
         ),
         SizedBox(height: 7),
         // Current Location Button
-        TextButton.icon(style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.brown.withAlpha(30))),
+        TextButton.icon(
+          style: ButtonStyle(
+            backgroundColor: WidgetStatePropertyAll(Colors.brown.withAlpha(30)),
+          ),
           onPressed: goToCurrentLocation,
           label: Text(
             'Go to current location',
-            style: TextStyle(color: Colors.blue),
+            style: TextStyle(color: Colors.blue ,textBaseline: TextBaseline.alphabetic),
           ),
-          icon: Icon(Icons.my_location , color: Colors.blue,),
+          icon: Icon(Icons.my_location, color: Colors.blue),
         ),
         SizedBox(height: 20),
 
@@ -121,7 +140,7 @@ class _SelectLocationPageState extends State<SelectLocationPage> {
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,
-              padding: const EdgeInsets.symmetric(vertical: 14 , horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
             ),
           ),
       ],

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:order_notebook/loading_widgets/loading_widget.dart';
 import 'package:order_notebook/map_widget/get_snapshot.dart';
+import 'package:order_notebook/map_widget/map_riverpod.dart';
 import 'package:order_notebook/map_widget/select_location_page.dart';
 import 'package:order_notebook/methods/add_order.dart';
 import 'package:order_notebook/notebook_data/consumer_data.dart';
@@ -26,6 +27,22 @@ class _CartPageState extends ConsumerState<CartPage> {
   String mapSnapshotUrl = '';
   double lat = 0.0;
   double long = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Fetch location as soon as app starts
+    Future.microtask(() async {
+      try {
+        await ref.read(locationProvider.notifier).fetchCurrentLocation();
+      } catch (e) {
+        // if (!mounted) return;
+        // ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(content: Text('Please Turn on your Location....')),
+        // );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

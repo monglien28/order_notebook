@@ -42,6 +42,64 @@ class _ShowNotebookVariantState extends ConsumerState<ShowNotebookVariant> {
     return Stack(
       children: [
         Scaffold(
+          bottomNavigationBar: Container(
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            color: const Color.fromARGB(255, 156, 127, 70),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'Total Price : ${ref.watch(totalPriceProvider)}',
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 7, 47, 13),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(width: 10),
+                if (currentIndex > 0)
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      _pageController.previousPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    icon: const Icon(Icons.arrow_back),
+                    label: const Text("Previous"),
+                  ),
+                SizedBox(width: 5),
+                if (currentIndex < entries.length - 1)
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      _pageController.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    icon: const Icon(Icons.arrow_forward),
+                    label: const Text("Next"),
+                  ),
+                SizedBox(width: 5),
+                if (currentIndex == entries.length - 1)
+                  Flexible(
+                    child: ElevatedButton.icon(
+                      style: ButtonStyle(
+                        padding: WidgetStatePropertyAll(
+                          EdgeInsetsGeometry.symmetric(horizontal: 5),
+                        ),
+                        backgroundColor: WidgetStatePropertyAll(
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                      icon: const Icon(Icons.shopping_cart),
+                      onPressed: onGoToCartClick,
+                      label: const Text('Complete Order'),
+                    ),
+                  ),
+                SizedBox(width: 5),
+              ],
+            ),
+          ),
           body: Column(
             children: [
               Expanded(
@@ -61,62 +119,6 @@ class _ShowNotebookVariantState extends ConsumerState<ShowNotebookVariant> {
               ),
 
               // --- Navigation Buttons ---
-              SizedBox(
-                width: double.maxFinite,
-                child: Container(
-                  color: const Color.fromARGB(255, 156, 127, 70),
-                  padding: const EdgeInsets.symmetric(horizontal: 12 , vertical: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        'Total Price : ${ref.watch(totalPriceProvider)}',
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 7, 47, 13),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      if (currentIndex > 0)
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            _pageController.previousPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          icon: const Icon(Icons.arrow_back),
-                          label: const Text("Previous"),
-                        ),
-                      SizedBox(width: 10),
-                      if (currentIndex < entries.length - 1)
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          icon: const Icon(Icons.arrow_forward),
-                          label: const Text("Next"),
-                        ),
-                      SizedBox(width: 10),
-                      if (currentIndex == entries.length - 1)
-                        ElevatedButton.icon(
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll(
-                              Theme.of(context).colorScheme.onPrimary,
-                            ),
-                          ),
-                          icon: const Icon(Icons.shopping_cart),
-                          onPressed: onGoToCartClick,
-                          label: const Text('Complete Order'),
-                        ),
-                      SizedBox(width: 10),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:order_notebook/loading_widgets/loading_widget.dart';
 import 'package:order_notebook/main.dart';
+import 'package:order_notebook/map_widget/map_riverpod.dart';
 import 'package:order_notebook/methods/get_notebook_variant_list.dart';
 import 'package:order_notebook/notebook_data/notebook_variant.dart';
 import 'package:order_notebook/notebook_data/order_riverpod.dart';
@@ -23,6 +24,22 @@ class _SelectNotebookTypeState extends ConsumerState<SelectNotebookType> {
   bool loader = false;
 
   @override
+  void initState() {
+    super.initState();
+    // Fetch location as soon as app starts
+    Future.microtask(() async {
+      try {
+        await ref.read(locationProvider.notifier).fetchCurrentLocation();
+      } catch (e) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Please Turn on your Location....')),
+        );
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
@@ -33,9 +50,10 @@ class _SelectNotebookTypeState extends ConsumerState<SelectNotebookType> {
           backgroundColor: const Color.fromRGBO(204, 180, 136, 1),
           body: Column(
             children: [
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               Text(
-                'Refer 5 friends and get a 300 pages notebook for FREE ',style: Theme.of(context).textTheme.titleMedium,
+                'Refer 5 friends and get a 300 pages notebook for FREE ',
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(height: 10),
               Padding(
@@ -55,7 +73,7 @@ class _SelectNotebookTypeState extends ConsumerState<SelectNotebookType> {
                   },
                 ),
               ),
-              SizedBox(height: 100,),
+              SizedBox(height: 100),
               Card(
                 color: const Color.fromARGB(255, 156, 127, 70),
                 elevation: 1,
@@ -144,7 +162,8 @@ class _SelectNotebookTypeState extends ConsumerState<SelectNotebookType> {
                     ElevatedButton(
                       onPressed: onNextClicked,
                       child: Text('Next'),
-                    ),SizedBox(height: 10,)
+                    ),
+                    SizedBox(height: 10),
                   ],
                 ),
               ),
