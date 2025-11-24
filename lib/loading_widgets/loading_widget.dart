@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-
 class LoadingWidget extends StatefulWidget {
   const LoadingWidget({super.key});
 
@@ -32,7 +31,7 @@ class _LoadingWidgetState extends State<LoadingWidget>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black .withValues(alpha: 0.5),
+      color: Colors.black.withValues(alpha:  0.5), // <-- UPDATED (was .withValues)
       child: Center(
         child: SizedBox(
           width: 120, // Adjusted size
@@ -42,20 +41,46 @@ class _LoadingWidgetState extends State<LoadingWidget>
               return AnimatedBuilder(
                 animation: _controller,
                 builder: (context, child) {
-                  double angle = (index / 4) * 2 * pi + _controller.value * 2 * pi;
-                  double radius = 30 * (1 - _controller.value); // Adjusted radius
+                  double angle =
+                      (index / 4) * 2 * pi + _controller.value * 2 * pi;
+                  double radius =
+                      30 * (1 - _controller.value); // Adjusted radius
 
                   // Scale and depth effect
-                  double scale = 1 + _controller.value * 0.5; // Scale for 3D effect
-                  double zIndex = 1 - _controller.value; // Z-index for depth effect
+                  double scale =
+                      1 + _controller.value * 0.5; // Scale for 3D effect
+                  double zIndex =
+                      1 - _controller.value; // Z-index for depth effect
+
+                  // --- Your New Opacity Logic ---
+                  // Get the dot's base color
+                  Color baseColor = _getDotColor(index); // <-- NEW
+
+                  // Calculate opacity:
+                  // When value is 0.0, opacity = 1.0 (fully opaque)
+                  // When value is 1.0, opacity = 0.3 (translucent)
+                  double opacity = 1.0 - (_controller.value * 0.7); // <-- NEW
+
+                  // Apply the calculated opacity to the base color
+                  Color animatedColor = baseColor.withValues(
+                    alpha: opacity,
+                  ); // <-- NEW
+                  // --- End of New Logic ---
 
                   return Positioned(
-                    left: 60 + radius * cos(angle) - 10, // Adjusted for smaller size
-                    top: 60 + radius * sin(angle) - 10, // Adjusted for smaller size
+                    left:
+                        60 +
+                        radius * cos(angle) -
+                        10, // Adjusted for smaller size
+                    top:
+                        60 +
+                        radius * sin(angle) -
+                        10, // Adjusted for smaller size
                     child: Transform.scale(
                       scale: scale,
                       child: Dot(
-                        color: _getDotColor(index),
+                        color:
+                            animatedColor, // <-- UPDATED (was _getDotColor(index))
                         zIndex: zIndex,
                       ),
                     ),
@@ -96,10 +121,7 @@ class Dot extends StatelessWidget {
     return Container(
       width: 20, // Adjusted size
       height: 20, // Adjusted size
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
-      ),
+      decoration: BoxDecoration(shape: BoxShape.circle, color: color),
     );
   }
 }

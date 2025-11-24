@@ -183,7 +183,7 @@
     },
     {
       "name": "flutter_plugin_android_lifecycle",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.32",
+      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.33",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -285,25 +285,25 @@
     },
     {
       "name": "google_maps_flutter_android",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_android-2.18.4",
+      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_android-2.18.6",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
     {
       "name": "google_maps_flutter_ios",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_ios-2.15.5",
+      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_ios-2.15.7",
       "packageUri": "lib/",
-      "languageVersion": "3.6"
+      "languageVersion": "3.8"
     },
     {
       "name": "google_maps_flutter_platform_interface",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_platform_interface-2.14.0",
+      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_platform_interface-2.14.1",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.8"
     },
     {
       "name": "google_maps_flutter_web",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_web-0.5.14+2",
+      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_web-0.5.14+3",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -321,7 +321,7 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.5.0",
+      "rootUri": "file:///C:/Users/manish.pandit/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.6.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },

@@ -7,6 +7,7 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A new Flutter project.">
 
   <!-- iOS meta tags & icons -->
@@ -47,17 +48,16 @@
 
     /* Gradient ring loader */
     .loader {
-      width: 100px;
-      height: 100px;
+      /* Replaced 200px with 30vmin */
+      width: 30vmin;
+      height: 30vmin;
+      /* On a phone, this will be ~110px instead of 200px */
+
       border: 6px solid transparent;
       border-top: 6px solid #4285F4;
-      /* Blue */
       border-right: 6px solid #34A853;
-      /* Green */
       border-bottom: 6px solid #FBBC05;
-      /* Yellow */
       border-left: 6px solid #EA4335;
-      /* Red */
       border-radius: 50%;
       animation: spin 1.3s linear infinite;
       margin-bottom: 20px;
@@ -69,12 +69,17 @@
       }
     }
 
+    /* FIX 3: MAKE THE TEXT RESPONSIVE */
     .loading_text {
-      font-size: 1rem;
+      /* Replaced 3rem (48px) with 1.5rem (24px) */
+      /* You could also use a vw unit like 'font-size: 6vw;' */
+      font-size: 1.5rem;
       font-weight: 700;
       color: #555;
       letter-spacing: 0.5px;
       animation: fadePulse 1.5s infinite;
+      text-align: center;
+      /* Good to add for smaller screens */
     }
 
     @keyframes fadePulse {
@@ -89,37 +94,10 @@
       }
     }
   </style>
-
-
-  <!-- <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAc1KJiwfJijmkCWRyCe78OZS_innMGGHo",
-      authDomain: "book-order-eb099.firebaseapp.com",
-      projectId: "book-order-eb099",
-      storageBucket: "book-order-eb099.firebasestorage.app",
-      messagingSenderId: "797064550684",
-      appId: "1:797064550684:web:29928c6cad74c5141082d9",
-      measurementId: "G-083VHX9QVC"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script> -->
-
+  
 
   <script src="flutter_bootstrap.js" async></script>
-  <!-- 
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqIobYDE3BojFo4ut24ilw74pFIPnQ1Z4&libraries=places"></script> -->
+
 </body>
 
 </html>

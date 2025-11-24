@@ -58,311 +58,365 @@ class _CartPageState extends ConsumerState<CartPage> {
             title: const Text("Your Cart"),
             backgroundColor: Color.fromRGBO(255, 248, 231, 1),
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: FormBuilder(
-              key: _formKey,
-              child: Column(
-                children: [
-                  // ✅ Show cart items
-                  Expanded(
-                    child: ListView.builder(
-                      padding: EdgeInsets.zero, // remove default list padding
-                      itemCount: notebookOrders.length,
-                      itemBuilder: (context, index) {
-                        final order = notebookOrders[index];
-                        return Card(
-                          shape: Border.symmetric(),
-                          color: const Color.fromARGB(255, 255, 239, 202),
-                          margin: const EdgeInsets.symmetric(
-                            vertical: 1,
-                          ), // tighter spacing
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ), // reduced
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "${order.notebookName} - ${order.notebookGrade}",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium!
-                                      .copyWith(
-                                        color: Color.fromRGBO(92, 64, 51, 1),
-                                      ), // slightly smaller
-                                ),
-                                const Divider(
-                                  height: 2, // reduce divider height
-                                  thickness: 0.8, // make it thinner
-                                ),
-                                ...order.pageQuantityMap.entries.map((entry) {
-                                  final pages = entry.key;
-                                  final quantity = entry.value["quantity"] ?? 0;
-                                  final price = entry.value["price"] ?? 0;
-
-                                  return Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 2,
-                                    ), // reduce row spacing
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          flex: 3,
-                                          child: Text(
-                                            "$pages pages",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleSmall!
-                                                .copyWith(
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 2,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: FormBuilder(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        // ✅ Show cart items
+                        Expanded(
+                          child: ListView.builder(
+                            padding:
+                                EdgeInsets.zero, // remove default list padding
+                            itemCount: notebookOrders.length,
+                            itemBuilder: (context, index) {
+                              final order = notebookOrders[index];
+                              return Card(
+                                shape: Border.symmetric(),
+                                color: const Color.fromARGB(255, 255, 239, 202),
+                                margin: const EdgeInsets.symmetric(
+                                  vertical: 1,
+                                ), // tighter spacing
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 4,
+                                  ), // reduced
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "${order.notebookName} - ${order.notebookGrade}",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(
+                                              color: Color.fromRGBO(
+                                                92,
+                                                64,
+                                                51,
+                                                1,
+                                              ),
+                                            ), // slightly smaller
+                                      ),
+                                      const Divider(
+                                        height: 2, // reduce divider height
+                                        thickness: 0.8, // make it thinner
+                                      ),
+                                      ...order.pageQuantityMap.entries.map((
+                                        entry,
+                                      ) {
+                                        final pages = entry.key;
+                                        final quantity =
+                                            entry.value["quantity"] ?? 0;
+                                        final price = entry.value["price"] ?? 0;
+                
+                                        return Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 2,
+                                          ), // reduce row spacing
                                           child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
                                             children: [
-                                              IconButton(
-                                                iconSize: 20, // smaller icons
-                                                padding: EdgeInsets.all(5),
-                                                constraints:
-                                                    const BoxConstraints(), // remove min size
-                                                icon: const Icon(
-                                                  Icons.remove_circle_outline,
+                                              Expanded(
+                                                flex: 3,
+                                                child: Text(
+                                                  "$pages pages",
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .titleSmall!
+                                                      .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                                 ),
-                                                onPressed: () {
-                                                  if (quantity > 0) {
-                                                    _updateQuantity(
-                                                      ref,
-                                                      order,
-                                                      pages,
-                                                      quantity - 1,
-                                                      price,
-                                                    );
-                                                  }
-                                                },
                                               ),
-                                              Text(
-                                                "$quantity",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .titleSmall!
-                                                    .copyWith(
-                                                      fontWeight:
-                                                          FontWeight.bold,
+                                              Expanded(
+                                                flex: 2,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    IconButton(
+                                                      iconSize:
+                                                          20, // smaller icons
+                                                      padding: EdgeInsets.all(5),
+                                                      constraints:
+                                                          const BoxConstraints(), // remove min size
+                                                      icon: const Icon(
+                                                        Icons
+                                                            .remove_circle_outline,
+                                                      ),
+                                                      onPressed: () {
+                                                        if (quantity > 0) {
+                                                          _updateQuantity(
+                                                            ref,
+                                                            order,
+                                                            pages,
+                                                            quantity - 1,
+                                                            price,
+                                                          );
+                                                        }
+                                                      },
                                                     ),
-                                              ),
-                                              IconButton(
-                                                iconSize: 20,
-                                                padding: EdgeInsets.all(5),
-                                                constraints:
-                                                    const BoxConstraints(),
-                                                icon: const Icon(
-                                                  Icons.add_circle_outline,
+                                                    Text(
+                                                      "$quantity",
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .titleSmall!
+                                                          .copyWith(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                    IconButton(
+                                                      iconSize: 20,
+                                                      padding: EdgeInsets.all(5),
+                                                      constraints:
+                                                          const BoxConstraints(),
+                                                      icon: const Icon(
+                                                        Icons.add_circle_outline,
+                                                      ),
+                                                      onPressed: () {
+                                                        _updateQuantity(
+                                                          ref,
+                                                          order,
+                                                          pages,
+                                                          quantity + 1,
+                                                          price,
+                                                        );
+                                                      },
+                                                    ),
+                                                  ],
                                                 ),
-                                                onPressed: () {
-                                                  _updateQuantity(
-                                                    ref,
-                                                    order,
-                                                    pages,
-                                                    quantity + 1,
-                                                    price,
-                                                  );
-                                                },
+                                              ),
+                                              Expanded(
+                                                flex: 2,
+                                                child: Text(
+                                                  "₹${quantity * price}",
+                                                  textAlign: TextAlign.right,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .titleSmall!
+                                                      .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
                                               ),
                                             ],
                                           ),
-                                        ),
-                                        Expanded(
-                                          flex: 2,
-                                          child: Text(
-                                            "₹${quantity * price}",
-                                            textAlign: TextAlign.right,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleSmall!
-                                                .copyWith(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                        );
+                                      }),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                
+                        const SizedBox(height: 12),
+                
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 255, 239, 202),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              TextButton.icon(
+                                onPressed: selectMapDialog,
+                                label: Text(
+                                  lat == 0.0
+                                      ? 'Select Delivery Location'
+                                      : 'Change Location',
+                                  style: TextStyle(color: Colors.blue),
+                                ),
+                                icon: Icon(Icons.location_on),
+                              ),
+                              if (lat != 0.0)
+                                GestureDetector(
+                                  onTap: () {
+                                    showImageDialog();
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(0),
+                                        height: 50,
+                                        width: 50,
+                                        // Set your desired height
+                                        decoration: BoxDecoration(
+                                          // Background color if image fails to load
+                                          // Optional: Rounded corners
+                                          image: DecorationImage(
+                                            image: NetworkImage(
+                                              getStaticMapUrl(lat, long),
+                                            ),
+                                            fit: BoxFit
+                                                .scaleDown, // Adjust the image to cover the box
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  );
-                                }),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-
-                  const SizedBox(height: 12),
-
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color.fromARGB(255, 255, 239, 202),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextButton.icon(
-                          onPressed: selectMapDialog,
-                          label: Text(
-                            lat == 0.0
-                                ? 'Select Delivery Location'
-                                : 'Change Location',
-                            style: TextStyle(color: Colors.blue),
-                          ),
-                          icon: Icon(Icons.location_on),
-                        ),
-                        if (lat != 0.0)
-                          GestureDetector(
-                            onTap: () {
-                              showImageDialog();
-                            },
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(0),
-                                  height: 50,
-                                  width: 50,
-                                  // Set your desired height
-                                  decoration: BoxDecoration(
-                                    // Background color if image fails to load
-                                    // Optional: Rounded corners
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                        getStaticMapUrl(lat, long),
                                       ),
-                                      fit: BoxFit
-                                          .scaleDown, // Adjust the image to cover the box
-                                    ),
+                                      // Icon(Icons.location_city , color: Colors.red,),
+                                      Text(
+                                        'See Your Location',
+                                        style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                // Icon(Icons.location_city , color: Colors.red,),
-                                Text(
-                                  'See Your Location',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        // ElevatedButton(
-                        //   onPressed: () {
-                        //     showImageDialog();
-                        //   },
-                        //   child: Text('Show Location'),
-                        // ),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(height: 12),
-
-                  // ✅ Delivery Instructions
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: FormBuilderTextField(
-                      controller: deliveryInstructionController,
-                      style: Theme.of(context).textTheme.bodyMedium,
-
-                      name: 'delivery instruction',
-                      decoration: InputDecoration(
-                        fillColor: Theme.of(
-                          context,
-                        ).inputDecorationTheme.fillColor,
-                        filled: true,
-                        hint: Text(
-                          'Any Delivery Instruction ?',
-                          style: Theme.of(context).textTheme.bodySmall
-                              ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(
-                                  context,
-                                ).hintColor, // lighter like placeholder
-                              ),
-                        ),
-                        border: OutlineInputBorder(),
-                        contentPadding: const EdgeInsets.all(10),
-                        // filled: true,
-                        label: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Delivery Instruction',
-                                style: Theme.of(context).textTheme.bodySmall
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(
-                                        122,
-                                        106,
-                                        83,
-                                        0.7,
-                                      ), // lighter like placeholder
-                                    ),
-                              ),
-                              // const TextSpan(
-                              //   text: ' *',
-                              //   style: TextStyle(color: Colors.red),
+                              // ElevatedButton(
+                              //   onPressed: () {
+                              //     showImageDialog();
+                              //   },
+                              //   child: Text('Show Location'),
                               // ),
                             ],
                           ),
                         ),
-                        labelStyle: Theme.of(context).textTheme.bodyMedium,
-                      ),
+                
+                        const SizedBox(height: 12),
+                
+                        // ✅ Delivery Instructions
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 10),
+                          child: FormBuilderTextField(
+                            controller: deliveryInstructionController,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                
+                            name: 'delivery instruction',
+                            decoration: InputDecoration(
+                              fillColor: Theme.of(
+                                context,
+                              ).inputDecorationTheme.fillColor,
+                              filled: true,
+                              hint: Text(
+                                'Any Delivery Instruction ?',
+                                style: Theme.of(context).textTheme.bodySmall
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: Theme.of(
+                                        context,
+                                      ).hintColor, // lighter like placeholder
+                                    ),
+                              ),
+                              border: OutlineInputBorder(),
+                              contentPadding: const EdgeInsets.all(10),
+                              // filled: true,
+                              label: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Delivery Instruction',
+                                      style: Theme.of(context).textTheme.bodySmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: Color.fromRGBO(
+                                              122,
+                                              106,
+                                              83,
+                                              0.7,
+                                            ), // lighter like placeholder
+                                          ),
+                                    ),
+                                    // const TextSpan(
+                                    //   text: ' *',
+                                    //   style: TextStyle(color: Colors.red),
+                                    // ),
+                                  ],
+                                ),
+                              ),
+                              labelStyle: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ),
+                        ),
+                
+                        const SizedBox(height: 20),
+                
+                        // ✅ Total Price
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              "Total:",
+                              style: Theme.of(context).textTheme.titleLarge!
+                                  .copyWith(color: Colors.black),
+                            ),
+                            Text(
+                              "₹${ref.watch(totalPriceProvider)}",
+                              style: Theme.of(context).textTheme.titleLarge!
+                                  .copyWith(color: Colors.black),
+                            ),
+                          ],
+                        ),
+                
+                        const SizedBox(height: 16),
+                
+                        // ✅ Place Order Button
+                        ElevatedButton.icon(
+                          icon: const Icon(Icons.check_circle_outline),
+                          label: const Text("Place Order"),
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50),
+                          ),
+                          onPressed: () {
+                            onSavedClicked(orderData);
+                          },
+                        ),
+                      ],
                     ),
                   ),
-
-                  const SizedBox(height: 20),
-
-                  // ✅ Total Price
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        "Total:",
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleLarge!.copyWith(color: Colors.black),
-                      ),
-                      Text(
-                        "₹${ref.watch(totalPriceProvider)}",
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleLarge!.copyWith(color: Colors.black),
+                ),
+              ),
+              Container(
+                // Add some padding so it's not stuck to the edges
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 16.0,
+                ),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    // Default style for the whole message (subtle)
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.grey[600],
+                      fontSize: 17, // Small font size for subtlety
+                    ),
+                    children: <TextSpan>[
+                      const TextSpan(text: 'For any help whatsapp or call '),
+                      TextSpan(
+                        text: '7414040042',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                        // --- Optional: Make it tappable ---
+                        // recognizer: TapGestureRecognizer()
+                        //   ..onTap = () {
+                        //     launchUrl(Uri.parse('tel:7414040042'));
+                        //   },
                       ),
                     ],
                   ),
-
-                  const SizedBox(height: 16),
-
-                  // ✅ Place Order Button
-                  ElevatedButton.icon(
-                    icon: const Icon(Icons.check_circle_outline),
-                    label: const Text("Place Order"),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50),
-                    ),
-                    onPressed: () {
-                      onSavedClicked(orderData);
-                    },
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         ),
         if (loader) LoadingWidget(),

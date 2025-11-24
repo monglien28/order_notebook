@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class OrderData {
-  String? mobileNo;
+  String mobileNo;
   String? consumerName;
   Timestamp? timestamp;
   String? locationLink;
@@ -33,7 +33,7 @@ class OrderData {
   }
 
   OrderData({
-    this.mobileNo,
+    required this.mobileNo,
     this.consumerName,
     this.timestamp,
     this.locationLink,
