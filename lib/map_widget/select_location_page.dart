@@ -25,7 +25,7 @@ class _SelectLocationPageState extends ConsumerState<SelectLocationPage> {
     if (location != null) {
       initialPosition = CameraPosition(
         target: LatLng(location.latitude, location.longitude),
-        zoom: 15,
+        zoom: 16,
       );
     } else {
       initialPosition = CameraPosition(
