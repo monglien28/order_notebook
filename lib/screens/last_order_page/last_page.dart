@@ -16,10 +16,10 @@ class LastPage extends StatelessWidget {
     String count10Message = '';
 
     if ((totalCount % 10 + currentOrderCount) >= 10) {
-      count10Message = 'You are eligible for a free 300 page notebook 🎉';
+      count10Message = 'You are eligible for a free 240 page notebook 🎉';
     } else {
       count10Message =
-          'You are just ${10 - ((currentOrderCount + totalCount) % 10)} notebooks order away to get a 300 page notebook for FREE 🎁';
+          'You are just ${10 - ((currentOrderCount + totalCount) % 10)} notebooks order away to get a 240 page notebook for FREE 🎁';
     }
 
     return Scaffold(
@@ -55,7 +55,7 @@ class LastPage extends StatelessWidget {
             ),
 
             Text(
-              '✔️ Order 10 notebooks in a year and get a 300 pages notebook free. 🎁',
+              '✔️ Order 10 notebooks in a year and get a 240 pages notebook free. 🎁',
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
