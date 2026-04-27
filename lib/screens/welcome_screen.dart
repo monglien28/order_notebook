@@ -10,6 +10,7 @@ import 'package:order_notebook/notebook_data/order_riverpod.dart';
 import 'package:order_notebook/utilities/make_text_upper_case.dart';
 import 'package:order_notebook/methods/add_consumer.dart';
 import 'package:order_notebook/methods/retrieve_notebook_type.dart';
+import 'package:order_notebook/widgets/app_download_card.dart';
 import 'select_notebook_type.dart';
 
 class WelcomeScreen extends ConsumerStatefulWidget {
@@ -30,199 +31,204 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Stack(
       children: [
-        Scaffold(
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Card(
-                  child: FormBuilder(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        Image.network(
-                          'https://res.cloudinary.com/dsrfkeh1v/image/upload/v1761938027/logo_iu6voj.jpg',
-                          height: 400,
-                          width: double.maxFinite,
-                          filterQuality: FilterQuality.medium,
-                          fit: BoxFit
-                              .contain, // Ensure the image covers the entire space
-                          color: const Color.fromARGB(
-                            255,
-                            236,
-                            236,
-                            236,
-                          ).withValues(alpha: 0.7), // Adjust opacity
-                          colorBlendMode: BlendMode.dstATop,
-                        ),
-                        SizedBox(height: 20),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: TextFormField(
-                            validator: FormBuilderValidators.compose([
-                              FormBuilderValidators.required(),
-                              FormBuilderValidators.equalLength(10),
-                            ]),
-                            onChanged: (value) {
-                              if (value.isNotEmpty && value.length == 10) {
-                                Future.delayed(Duration(milliseconds: 100), () {
-                                  if (_formKey.currentState?.validate() ??
-                                      false) {
-                                    onNextClicked();
-                                  }
-                                });
-                              }
-                            },
-                
-                            style: Theme.of(context).textTheme.bodyMedium,
-                            // focusNode: mobileFocusNode,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter(10),
-                              FilteringTextInputFormatter.digitsOnly,
-                            ],
-                            controller: mobileNoController,
-                            keyboardType: TextInputType.number,
-                
-                            decoration: InputDecoration(
-                              fillColor: Theme.of(
-                                context,
-                              ).inputDecorationTheme.fillColor,
-                              // filled: true,
-                              contentPadding: EdgeInsets.all(10),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(19),
-                                ),
+        GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            body: SafeArea(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    physics: const ClampingScrollPhysics(),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const SizedBox.shrink(), // Top spacer for centering
+                            Card(
+                              margin: const EdgeInsets.symmetric(horizontal: 20.0),
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                              errorBorder: OutlineInputBorder(),
-                              label: RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Enter Mobile No.',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                            color: Theme.of(
-                                              context,
-                                            ).hintColor, // lighter like placeholder
-                                          ),
-                                    ),
-                                    const TextSpan(
-                                      text: ' *',
-                                      style: TextStyle(color: Colors.red),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              labelStyle: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        if (!isConsumerExist)
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: TextFormField(
-                              style: Theme.of(context).textTheme.bodyMedium,
-                              validator: FormBuilderValidators.required(),
-                              controller: nameController,
-                              inputFormatters: [
-                                UppercaseTextInputFormatter(),
-                                LengthLimitingTextInputFormatter(50),
-                                FilteringTextInputFormatter.allow(
-                                  RegExp(r'[a-zA-Z\s]'),
-                                ),
-                              ],
-                              decoration: InputDecoration(
-                                fillColor: Theme.of(
-                                  context,
-                                ).inputDecorationTheme.fillColor,
-                                filled: true,
-                                contentPadding: EdgeInsets.all(10),
-                                border: OutlineInputBorder(),
-                                errorBorder: OutlineInputBorder(),
-                                label: RichText(
-                                  text: TextSpan(
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: FormBuilder(
+                                  key: _formKey,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      TextSpan(
-                                        text: 'Enter Your Name',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color: Theme.of(
-                                                context,
-                                              ).hintColor, // lighter like placeholder
-                                            ),
+                                      Image.network(
+                                        'https://res.cloudinary.com/dsrfkeh1v/image/upload/v1761938027/logo_iu6voj.jpg',
+                                        height: screenHeight * 0.35 > 350 ? 350 : screenHeight * 0.35,
+                                        width: double.maxFinite,
+                                        filterQuality: FilterQuality.medium,
+                                        fit: BoxFit.contain, // Ensure the image covers the entire space
+                                        color: const Color.fromARGB(
+                                          255,
+                                          236,
+                                          236,
+                                          236,
+                                        ).withValues(alpha: 0.7), // Adjust opacity
+                                        colorBlendMode: BlendMode.dstATop,
                                       ),
-                                      const TextSpan(
-                                        text: ' *',
-                                        style: TextStyle(color: Colors.red),
+                                      const SizedBox(height: 20),
+                                      TextFormField(
+                                        validator: FormBuilderValidators.compose([
+                                          FormBuilderValidators.required(),
+                                          FormBuilderValidators.equalLength(10),
+                                        ]),
+                                        onChanged: (value) {
+                                          if (value.isNotEmpty && value.length == 10) {
+                                            Future.delayed(const Duration(milliseconds: 100), () {
+                                              if (_formKey.currentState?.validate() ?? false) {
+                                                onNextClicked();
+                                              }
+                                            });
+                                          }
+                                        },
+                                        style: Theme.of(context).textTheme.bodyMedium,
+                                        inputFormatters: [
+                                          LengthLimitingTextInputFormatter(10),
+                                          FilteringTextInputFormatter.digitsOnly,
+                                        ],
+                                        controller: mobileNoController,
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                          fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+                                          contentPadding: const EdgeInsets.all(15),
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(19),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(19),
+                                          ),
+                                          label: RichText(
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Enter Mobile No.',
+                                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Theme.of(context).hintColor,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: ' *',
+                                                  style:  TextStyle(color: Colors.red),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          labelStyle: Theme.of(context).textTheme.bodySmall,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 15),
+                                      if (!isConsumerExist)
+                                        TextFormField(
+                                          style: Theme.of(context).textTheme.bodyMedium,
+                                          validator: FormBuilderValidators.required(),
+                                          controller: nameController,
+                                          inputFormatters: [
+                                            UppercaseTextInputFormatter(),
+                                            LengthLimitingTextInputFormatter(50),
+                                            FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z\s]')),
+                                          ],
+                                          decoration: InputDecoration(
+                                            fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+                                            filled: true,
+                                            contentPadding: const EdgeInsets.all(15),
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(19),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(19),
+                                            ),
+                                            label: RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: 'Enter Your Name',
+                                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Theme.of(context).hintColor,
+                                                    ),
+                                                  ),
+                                                  const TextSpan(
+                                                    text: ' *',
+                                                    style:  TextStyle(color: Colors.red),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            labelStyle: Theme.of(context).textTheme.bodySmall,
+                                          ),
+                                        ),
+                                      if (!isConsumerExist) const SizedBox(height: 15),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          minimumSize: const Size(double.infinity, 50), // Full width button
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(15),
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          Future.delayed(const Duration(milliseconds: 100), () {
+                                            if (_formKey.currentState?.validate() ?? false) {
+                                              onNextClicked();
+                                            }
+                                          });
+                                        },
+                                        child: const Text(
+                                          'Next',
+                                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                labelStyle: Theme.of(context).textTheme.bodySmall,
                               ),
                             ),
-                          ),
-                        SizedBox(height: 10),
-                
-                        ElevatedButton(
-                          onPressed: () {
-                            Future.delayed(Duration(milliseconds: 100), () {
-                              if (_formKey.currentState?.validate() ?? false) {
-                                onNextClicked();
-                              }
-                            });
-                          },
-                          child: Text('Next'),
+                            const AppDownloadCard(),
+                            Container(
+                              padding: const EdgeInsets.only(top: 20.0, bottom: 10.0, left: 16.0, right: 16.0),
+                              child: RichText(
+                                textAlign: TextAlign.center,
+                                text: TextSpan(
+                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: Colors.grey[600],
+                                    fontSize: 17,
+                                  ),
+                                  children: const <TextSpan>[
+                                    TextSpan(text: 'For any help whatsapp or call '),
+                                    TextSpan(
+                                      text: '7414040042',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                // Add some padding so it's not stuck to the edges
-                padding: const EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 16.0,
-                ),
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    // Default style for the whole message (subtle)
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Colors.grey[600],
-                      fontSize: 17, // Small font size for subtlety
-                    ),
-                    children: <TextSpan>[
-                      const TextSpan(text: 'For any help whatsapp or call '),
-                      TextSpan(
-                        text: '7414040042',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                        // --- Optional: Make it tappable ---
-                        // recognizer: TapGestureRecognizer()
-                        //   ..onTap = () {
-                        //     launchUrl(Uri.parse('tel:7414040042'));
-                        //   },
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
               ),
-            ],
+            ),
           ),
         ),
         if (loader) LoadingWidget(),

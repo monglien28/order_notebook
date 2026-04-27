@@ -18,7 +18,8 @@
         "http",
         "intl",
         "lottie",
-        "smooth_page_indicator"
+        "smooth_page_indicator",
+        "url_launcher"
       ],
       "devDependencies": [
         "flutter_lints",
@@ -51,6 +52,20 @@
       ]
     },
     {
+      "name": "url_launcher",
+      "version": "6.3.2",
+      "dependencies": [
+        "flutter",
+        "url_launcher_android",
+        "url_launcher_ios",
+        "url_launcher_linux",
+        "url_launcher_macos",
+        "url_launcher_platform_interface",
+        "url_launcher_web",
+        "url_launcher_windows"
+      ]
+    },
+    {
       "name": "intl",
       "version": "0.20.2",
       "dependencies": [
@@ -61,7 +76,7 @@
     },
     {
       "name": "firebase_core",
-      "version": "4.4.0",
+      "version": "4.7.0",
       "dependencies": [
         "firebase_core_platform_interface",
         "firebase_core_web",
@@ -94,7 +109,7 @@
     },
     {
       "name": "google_maps_flutter",
-      "version": "2.14.0",
+      "version": "2.17.0",
       "dependencies": [
         "flutter",
         "google_maps_flutter_android",
@@ -105,7 +120,7 @@
     },
     {
       "name": "lottie",
-      "version": "3.3.2",
+      "version": "3.3.3",
       "dependencies": [
         "archive",
         "flutter",
@@ -116,7 +131,7 @@
     },
     {
       "name": "flutter_riverpod",
-      "version": "3.2.0",
+      "version": "3.3.1",
       "dependencies": [
         "collection",
         "flutter",
@@ -135,7 +150,7 @@
     },
     {
       "name": "form_builder_validators",
-      "version": "11.2.0",
+      "version": "11.3.0",
       "dependencies": [
         "flutter",
         "flutter_localizations",
@@ -144,7 +159,7 @@
     },
     {
       "name": "flutter_form_builder",
-      "version": "10.2.0",
+      "version": "10.3.0+2",
       "dependencies": [
         "flutter",
         "intl"
@@ -152,7 +167,7 @@
     },
     {
       "name": "cloud_firestore",
-      "version": "6.1.2",
+      "version": "6.3.0",
       "dependencies": [
         "cloud_firestore_platform_interface",
         "cloud_firestore_web",
@@ -177,7 +192,7 @@
     },
     {
       "name": "lints",
-      "version": "6.0.0",
+      "version": "6.1.0",
       "dependencies": []
     },
     {
@@ -240,7 +255,7 @@
     },
     {
       "name": "matcher",
-      "version": "0.12.17",
+      "version": "0.12.19",
       "dependencies": [
         "async",
         "meta",
@@ -251,7 +266,7 @@
     },
     {
       "name": "test_api",
-      "version": "0.7.7",
+      "version": "0.7.10",
       "dependencies": [
         "async",
         "boolean_selector",
@@ -265,8 +280,66 @@
       ]
     },
     {
+      "name": "url_launcher_windows",
+      "version": "3.1.5",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_web",
+      "version": "2.4.2",
+      "dependencies": [
+        "flutter",
+        "flutter_web_plugins",
+        "url_launcher_platform_interface",
+        "web"
+      ]
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "version": "2.3.2",
+      "dependencies": [
+        "flutter",
+        "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_macos",
+      "version": "3.2.5",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_linux",
+      "version": "3.2.2",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_ios",
+      "version": "6.4.1",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
+      "name": "url_launcher_android",
+      "version": "6.3.29",
+      "dependencies": [
+        "flutter",
+        "url_launcher_platform_interface"
+      ]
+    },
+    {
       "name": "firebase_core_web",
-      "version": "3.4.0",
+      "version": "3.6.0",
       "dependencies": [
         "firebase_core_platform_interface",
         "flutter",
@@ -277,7 +350,7 @@
     },
     {
       "name": "firebase_core_platform_interface",
-      "version": "6.0.2",
+      "version": "6.0.3",
       "dependencies": [
         "collection",
         "flutter",
@@ -361,7 +434,7 @@
     },
     {
       "name": "async",
-      "version": "2.13.0",
+      "version": "2.13.1",
       "dependencies": [
         "collection",
         "meta"
@@ -369,7 +442,7 @@
     },
     {
       "name": "google_maps_flutter_web",
-      "version": "0.5.14+3",
+      "version": "0.6.2",
       "dependencies": [
         "collection",
         "flutter",
@@ -383,7 +456,7 @@
     },
     {
       "name": "google_maps_flutter_platform_interface",
-      "version": "2.14.1",
+      "version": "2.15.0",
       "dependencies": [
         "collection",
         "flutter",
@@ -393,7 +466,7 @@
     },
     {
       "name": "google_maps_flutter_ios",
-      "version": "2.17.0",
+      "version": "2.18.1",
       "dependencies": [
         "flutter",
         "google_maps_flutter_platform_interface",
@@ -402,19 +475,19 @@
     },
     {
       "name": "google_maps_flutter_android",
-      "version": "2.18.12",
+      "version": "2.19.8",
       "dependencies": [
         "flutter",
         "flutter_plugin_android_lifecycle",
         "google_maps_flutter_platform_interface",
+        "meta",
         "stream_transform"
       ]
     },
     {
       "name": "archive",
-      "version": "4.0.7",
+      "version": "4.0.9",
       "dependencies": [
-        "crypto",
         "path",
         "posix"
       ]
@@ -428,7 +501,7 @@
     },
     {
       "name": "riverpod",
-      "version": "3.2.0",
+      "version": "3.2.1",
       "dependencies": [
         "async",
         "clock",
@@ -449,7 +522,7 @@
     },
     {
       "name": "cloud_firestore_web",
-      "version": "5.1.2",
+      "version": "5.3.0",
       "dependencies": [
         "_flutterfire_internals",
         "cloud_firestore_platform_interface",
@@ -462,7 +535,7 @@
     },
     {
       "name": "cloud_firestore_platform_interface",
-      "version": "7.0.6",
+      "version": "7.2.0",
       "dependencies": [
         "_flutterfire_internals",
         "collection",
@@ -479,14 +552,14 @@
     },
     {
       "name": "material_color_utilities",
-      "version": "0.11.1",
+      "version": "0.13.0",
       "dependencies": [
         "collection"
       ]
     },
     {
       "name": "characters",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "dependencies": []
     },
     {
@@ -523,7 +596,7 @@
     },
     {
       "name": "source_span",
-      "version": "1.10.1",
+      "version": "1.10.2",
       "dependencies": [
         "collection",
         "path",
@@ -554,7 +627,7 @@
     },
     {
       "name": "package_info_plus",
-      "version": "9.0.0",
+      "version": "9.0.1",
       "dependencies": [
         "clock",
         "ffi",
@@ -586,7 +659,7 @@
     },
     {
       "name": "dbus",
-      "version": "0.7.11",
+      "version": "0.7.12",
       "dependencies": [
         "args",
         "ffi",
@@ -596,11 +669,10 @@
     },
     {
       "name": "uuid",
-      "version": "4.5.2",
+      "version": "4.5.3",
       "dependencies": [
         "crypto",
-        "fixnum",
-        "meta"
+        "fixnum"
       ]
     },
     {
@@ -633,14 +705,14 @@
     },
     {
       "name": "flutter_plugin_android_lifecycle",
-      "version": "2.0.33",
+      "version": "2.0.34",
       "dependencies": [
         "flutter"
       ]
     },
     {
       "name": "posix",
-      "version": "6.0.3",
+      "version": "6.5.0",
       "dependencies": [
         "ffi",
         "meta",
@@ -648,15 +720,8 @@
       ]
     },
     {
-      "name": "crypto",
-      "version": "3.0.7",
-      "dependencies": [
-        "typed_data"
-      ]
-    },
-    {
       "name": "test",
-      "version": "1.26.3",
+      "version": "1.30.0",
       "dependencies": [
         "analyzer",
         "async",
@@ -665,7 +730,6 @@
         "coverage",
         "http_multi_server",
         "io",
-        "js",
         "matcher",
         "node_preamble",
         "package_config",
@@ -688,7 +752,7 @@
     },
     {
       "name": "_flutterfire_internals",
-      "version": "1.3.66",
+      "version": "1.3.69",
       "dependencies": [
         "collection",
         "firebase_core",
@@ -699,7 +763,7 @@
     },
     {
       "name": "vm_service",
-      "version": "15.0.2",
+      "version": "15.1.0",
       "dependencies": []
     },
     {
@@ -720,7 +784,7 @@
     },
     {
       "name": "ffi",
-      "version": "2.1.5",
+      "version": "2.2.0",
       "dependencies": []
     },
     {
@@ -749,6 +813,13 @@
       "name": "fixnum",
       "version": "1.1.1",
       "dependencies": []
+    },
+    {
+      "name": "crypto",
+      "version": "3.0.7",
+      "dependencies": [
+        "typed_data"
+      ]
     },
     {
       "name": "html",
@@ -787,7 +858,7 @@
     },
     {
       "name": "test_core",
-      "version": "0.6.12",
+      "version": "0.6.16",
       "dependencies": [
         "analyzer",
         "args",
@@ -874,11 +945,6 @@
       "dependencies": []
     },
     {
-      "name": "js",
-      "version": "0.7.2",
-      "dependencies": []
-    },
-    {
       "name": "io",
       "version": "1.0.5",
       "dependencies": [
@@ -913,7 +979,7 @@
     },
     {
       "name": "analyzer",
-      "version": "8.4.1",
+      "version": "10.0.1",
       "dependencies": [
         "_fe_analyzer_shared",
         "collection",
@@ -931,7 +997,7 @@
     },
     {
       "name": "petitparser",
-      "version": "7.0.1",
+      "version": "7.0.2",
       "dependencies": [
         "collection",
         "meta"
@@ -1028,9 +1094,10 @@
     },
     {
       "name": "_fe_analyzer_shared",
-      "version": "91.0.0",
+      "version": "93.0.0",
       "dependencies": [
-        "meta"
+        "meta",
+        "source_span"
       ]
     },
     {

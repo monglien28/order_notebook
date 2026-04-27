@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Notebook For Mee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            /* Brand Blue */
+            --primary-dark: #1e40af;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 60px 20px 100px;
+            /* Extra bottom padding for overlap effect */
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: -60px auto 40px;
+            /* Negative margin pulls it up over header */
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .policy-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Typography Styles */
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        .brand {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Numbered circles for H2 */
+        h2::before {
+            counter-increment: section;
+            content: counter(section);
+            background: #eff6ff;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+
+        body {
+            counter-reset: section;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #374151;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        /* Custom Bullet Points */
+        li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Contact Box Styles */
+        .contact-box {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .icon {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .policy-card {
+                padding: 30px 20px;
+            }
+
+            .container {
+                margin-top: -40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Privacy Policy</h1>
+        <div class="last-updated">Last Updated: January 2026</div>
+    </header>
+
+    <div class="container">
+        <div class="policy-card">
+            <p class="intro-text">
+                At <span class="brand">Notebook For Mee</span>, we value your trust. This Privacy Policy explains how we
+                collect, use, and protect your information when you use our mobile application and website to order your
+                customized notebooks.
+            </p>
+
+            <h2>Information We Collect</h2>
+            <p>To provide you with the best service, we may collect the following information:</p>
+            <ul>
+                <li><strong>Personal Details:</strong> Name, mobile number, email address, and delivery location.</li>
+                <li><strong>Order Information:</strong> Details regarding your notebook customizations, files uploaded,
+                    and purchase history.</li>
+                <li><strong>Security Data:</strong> OTPs and authentication tokens to ensure secure login.</li>
+                <li><strong>Device Data:</strong> Information about your device to improve app performance and user
+                    experience.</li>
+            </ul>
+
+            <h2>How We Use Your Information</h2>
+            <p>Your data is used strictly for the following purposes:</p>
+            <ul>
+                <li>Processing and delivering your customized orders efficiently.</li>
+                <li>Verifying your identity through OTP-based authentication.</li>
+                <li>Providing customer support and resolving issues.</li>
+                <li>Improving our app, website, and overall service quality.</li>
+                <li>Sending important updates regarding your orders.</li>
+            </ul>
+
+            <h2>Data Sharing</h2>
+            <p>
+                We respect your privacy. We <strong>do not</strong> sell or rent your personal data. Information is
+                shared only with trusted third-party services necessary for operations:
+            </p>
+            <ul>
+                <li><strong>Logistics Partners:</strong> To ensure your order reaches your doorstep.</li>
+                <li><strong>Technical Infrastructure:</strong> Cloud and analytics services (e.g., Firebase) to run the
+                    app.</li>
+                <li><strong>Legal Requirements:</strong> If required by law enforcement or legal authorities.</li>
+            </ul>
+
+            <h2>Data Security</h2>
+            <p>
+                We implement industry-standard security measures to protect your data against unauthorized access,
+                alteration, disclosure, or destruction. Your data is stored securely.
+            </p>
+
+            <h2>User Rights</h2>
+            <p>
+                You have full control over your data. You have the right to access, update, or request the deletion of
+                your personal information. If you wish to exercise these rights, please contact our support team.
+            </p>
+
+            <h2>Children’s Privacy</h2>
+            <p>
+                While our services may be used by children (e.g., for school notebooks), we do not knowingly collect
+                personal information directly from children under 13 without parental consent.
+            </p>
+
+            <h2>Changes to This Policy</h2>
+            <p>
+                We may update this Privacy Policy periodically to reflect changes in our practices. We encourage you to
+                review this page occasionally.
+            </p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns regarding this Privacy Policy, please reach out to us:</p>
+
+            <div class="contact-box">
+                <div class="contact-item">
+                    <span class="icon">📞</span>
+                    <span>+91 74140 40042</span>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Notebook For Mee</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

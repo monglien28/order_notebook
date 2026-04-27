@@ -1,6 +1,6 @@
 name: order_notebook
-description: "A new Flutter project."
-publish_to: 'none'
+description: "A comprehensive website for ordering spiral notebook in cheap price in Jaipur. Very much affordable price along with good quality notebooks"
+publish_to: 'Notebook For Mee'
 version: 0.1.0
 
 environment:
@@ -20,6 +20,7 @@ dependencies:
   geolocator: ^14.0.2
   firebase_core: ^4.2.0
   intl: ^0.20.2
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:
