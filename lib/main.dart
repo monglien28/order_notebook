@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class AppContainer extends StatelessWidget {
   final Widget child;
   const AppContainer({super.key, required this.child});
@@ -44,5 +43,3 @@ class AppContainer extends StatelessWidget {
     );
   }
 }
-
-
